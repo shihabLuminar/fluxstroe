@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fluxstroe/global_widgets/reusable_button.dart';
 import 'package:fluxstroe/utils/constatns/color_constants.dart';
 import 'package:fluxstroe/utils/constatns/image_constatns.dart';
+import 'package:fluxstroe/view/into_screen/intro_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -39,19 +41,16 @@ class WelcomeScreen extends StatelessWidget {
                   color: ColorConstants.white),
             ),
             SizedBox(height: 60),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 53, vertical: 15),
-              decoration: BoxDecoration(
-                  border: Border.all(color: ColorConstants.white, width: 1.18),
-                  borderRadius: BorderRadius.circular(29.5),
-                  color: ColorConstants.white.withAlpha(50)),
-              child: Text(
-                "Get Started",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                    color: ColorConstants.white),
-              ),
+            ReusableButton(
+              alpha: 160,
+              name: "Get Started",
+              onButtonPressed: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => IntroScreen(),
+                    ));
+              },
             ),
             SizedBox(height: 103),
           ],

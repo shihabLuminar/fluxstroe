@@ -2,24 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:fluxstroe/global_widgets/custom_text_field.dart';
 import 'package:fluxstroe/global_widgets/reusable_button.dart';
 import 'package:fluxstroe/utils/constatns/color_constants.dart';
-import 'package:fluxstroe/view/login_screen/login_screen.dart';
+import 'package:fluxstroe/view/bottom_nav_bar_screen/bottom_nav_bar_screen.dart';
+import 'package:fluxstroe/view/signup_screen/signup_screen.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
-  TextEditingController nameController = TextEditingController();
+class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 32.0),
@@ -39,27 +37,30 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
               CustomTextField(
-                controller: nameController,
-                hintText: "Enter your name",
-              ),
-              CustomTextField(
                 controller: emailController,
                 hintText: "Email Address",
               ),
               CustomTextField(
+                bottomPadding: 28,
                 controller: passwordController,
                 hintText: "Password",
               ),
-              CustomTextField(
-                bottomPadding: 40,
-                controller: confirmPasswordController,
-                hintText: "Confirm Password",
-              ),
+              Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                      onPressed: () {}, child: Text("Forgot Password?"))),
+              SizedBox(height: 35),
               ReusableButton(
                 backgroundColor: ColorConstants.black,
                 textColor: ColorConstants.white,
-                name: "Sign Up",
-                onButtonPressed: () {},
+                name: "Log in",
+                onButtonPressed: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BottomNavBarScreen(),
+                      ));
+                },
               ),
               SizedBox(height: 28),
               Text(
@@ -98,16 +99,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Already have account? "),
+                  Text("Don’t have an account? "),
                   InkWell(
                       onTap: () {
                         Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => LoginScreen(),
+                              builder: (context) => SignUpScreen(),
                             ));
                       },
-                      child: Text("Log In"))
+                      child: Text("Sign Up"))
                 ],
               ),
               SizedBox(

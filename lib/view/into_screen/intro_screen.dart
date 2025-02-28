@@ -93,6 +93,7 @@ class IntroScreen extends StatelessWidget {
 
         // button
         ReusableButton(
+          alpha: 160,
           name: "Shop Now",
           onButtonPressed: () {
             Navigator.pushReplacement(

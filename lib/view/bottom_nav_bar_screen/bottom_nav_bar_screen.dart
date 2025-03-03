@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fluxstroe/utils/constatns/image_constatns.dart';
+import 'package:fluxstroe/view/cart_screen/cart_screen.dart';
+import 'package:fluxstroe/view/home_screen/home_screen.dart';
+import 'package:fluxstroe/view/profile_screen/profile_screen.dart';
+import 'package:fluxstroe/view/search_screen/search_screen.dart';
 
 class BottomNavBarScreen extends StatefulWidget {
   const BottomNavBarScreen({super.key});
@@ -10,11 +14,17 @@ class BottomNavBarScreen extends StatefulWidget {
 
 class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   int selectedIndex = 0;
+  List<Widget> screensList = [
+    HomeScreen(),
+    SearchScreen(),
+    CartScreen(),
+    ProfileScreen()
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      body: Container(),
+      body: screensList[selectedIndex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(

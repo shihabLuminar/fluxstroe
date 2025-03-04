@@ -9,4 +9,6 @@ class ColorConstants {
   static const Color dartGrey = Color(0xff464447);
   static const Color lightGrey1 = Color(0xffD6D6D6);
   static const Color lightGrey2 = Color(0xffE7E8E9);
+  static const Color lightGrey3 = Color(0xff9b9b9b);
+  static const Color lightGrey4 = Color(0xfff8f8fa);
 }
